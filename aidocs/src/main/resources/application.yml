@@ -1,0 +1,23 @@
+server:
+    port: 8888
+spring:
+    ai:
+        openai:
+            api-key: ${OPENAI_API_KEY}
+            chat:
+                options:
+                    model: gpt-4o
+    application:
+        name: aidocs
+    datasource:
+        url: jdbc:postgresql://localhost:5432/sbdocs
+        username: admin
+        password: password
+    vectorstore:
+        pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimension: 1536
+    docker:
+        compose:
+            lifecycle-management: start_only
